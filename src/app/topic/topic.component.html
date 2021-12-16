@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="name-topic">
+        <p class="ml-2 mb-1">
+            Topic {{data.id}}: &nbsp; {{data.name}}
+        </p> 
+    </div>
+    <div class="info">
+        <div class="card-bottom">
+            <div class=" ml-2">
+                <img src="{{data.avt}}" alt="" class="avata">
+            </div>
+            <div class="btn-infoChat">
+                <fa-icon [icon]="faEllipsisH"></fa-icon>
+            </div>
+        </div>
+        <div class="btn-request">
+            <button class="btn btn-primary">
+                request
+                <fa-icon [icon]="faUserCheck" class="ml-1"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+
+.card{
+    background-color: rgb(252, 244, 244);
+    width: 350px;
+    height: 180px;
+    border-radius: 10px;
+    border-color: rgb(6, 187, 6);
+    box-shadow: 5px 4px 6px 0px rgba(139, 145, 168, 0.6);
+    font-family: Georgia;
+}
+
+.name-topic{
+    border-bottom: #21f360 2px solid;
+    padding: 10px 0px;
+    width: 350px;
+    // position: relative;
+    // display: inline-block;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.info{
+    display: flex;
+    position: relative;
+}
+
+.card-bottom{
+    position: relative;
+}
+
+.btn-infoChat{
+    position: absolute;
+    top: 0;
+    left: 320px;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.btn-join{
+    position: absolute;
+    left: 120px;
+    top: 85px;
+    right: 0;
+    bottom: 0;
+    width: 130px;
+    // height: 30px;
+}
+
+.avata{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    background-image: url("../../assets/images/image-victor.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    width: 45px !important;
+    height: 45px;
+}

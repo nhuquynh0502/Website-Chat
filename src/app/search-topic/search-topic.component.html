@@ -1,0 +1,36 @@
+<div class="background">
+    <div class="container-fluid">
+        <div class="search">
+            Search 
+            <input type="text" class="input mt-4 ml-2 mr-2" placeholder="search topic..." size="121">
+        </div>
+
+        <div class="topic">
+            <div >
+                <h5 class="ml-3 mt-4 mb-3">Other Topics</h5>
+            </div>
+            <carousel class="carousel" cellsToShow=3 lightDOM=true arrowsOutside=true pauseOnHover=false autoplay=true autoplayInterval=7000 dots=true>
+                <ng-container *ngFor = "let apptopic of topics; let i=index">
+                    <div class="ml-3 carousel-cell">
+                        <app-topic [data]="apptopic"></app-topic>
+                    </div>
+                </ng-container>
+            </carousel>
+        </div>
+
+        <!-- <div class="group">
+            <div>
+                <h5 class="ml-3 mt-4 mb-3">Your groups</h5>
+            </div>
+            <carousel class="carousel" cellsToShow=3 lightDOM=true arrowsOutside=true dots=true fade=true>
+                <ng-container *ngFor = "let apptopic of topics; let i=index">
+                    <div class="carousel-cell ml-3">
+                        <app-current-group [data]="apptopic"></app-current-group>
+                    </div>
+                </ng-container>
+            </carousel>
+        </div> -->
+    </div>
+</div>
+
+<ng-chat [adapter]="adapter" [userId]="userId"></ng-chat>
