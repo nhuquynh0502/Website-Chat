@@ -3,6 +3,7 @@ import {faUsers} from '@fortawesome/free-solid-svg-icons';
 import { Topic } from '../models/topics.model';
 import { MyAdapter } from '../adapter/my-adapter';
 import { ChatAdapter } from 'ng-chat';
+import { ConfigService } from '../home.service';
 
 @Component({
   selector: 'app-search-topic',
@@ -12,11 +13,11 @@ import { ChatAdapter } from 'ng-chat';
 
 export class SearchTopicComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private listGroups: ConfigService) { }
+  
   userId = 999;
 
-  public adapter: ChatAdapter = new MyAdapter();
+  public adapter: ChatAdapter = new MyAdapter(this.listGroups);
 
   isChange = false;
   faUsers = faUsers;

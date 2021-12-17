@@ -1,8 +1,14 @@
 import { ChatAdapter, IChatGroupAdapter, User, Group, Message, ChatParticipantStatus, ParticipantResponse, ParticipantMetadata, ChatParticipantType, IChatParticipant } from 'ng-chat';
 import { Observable, of } from 'rxjs';
-import { delay } from "rxjs/operators";
+import { delay, map } from "rxjs/operators";
+import { ConfigService } from '../home.service';
 
 export class MyAdapter extends ChatAdapter implements IChatGroupAdapter {
+
+  constructor(private listGroups: ConfigService) {
+    super();
+  }
+
   public static mockedParticipants: IChatParticipant[] = [
     {
       participantType: ChatParticipantType.User,
@@ -69,16 +75,33 @@ export class MyAdapter extends ChatAdapter implements IChatGroupAdapter {
     }];
 
   listFriends(): Observable<ParticipantResponse[]> {
-    return of(MyAdapter.mockedParticipants.map(user => {
-      let participantResponse = new ParticipantResponse();
+    // return of(MyAdapter.mockedParticipants.map(user => {
+    //   let participantResponse = new ParticipantResponse();
 
-      participantResponse.participant = user;
-      participantResponse.metadata = {
-        totalUnreadMessages: Math.floor(Math.random() * 10)
-      }
+    //   participantResponse.participant = user;
+    //   participantResponse.metadata = {
+    //     totalUnreadMessages: Math.floor(Math.random() * 10)
+    //   }
 
-      return participantResponse;
-    }));
+    //   return participantResponse;
+    // }));
+
+    return this.listGroups.getConfigResponse().pipe(
+      map(data => {
+        return data.data.map(x => {
+          let participantResponse = new ParticipantResponse()
+          participantResponse.participant = {
+            participantType: ChatParticipantType.User,
+            id: x.group_id,
+            displayName: x.group_name,
+            avatar: "http://pm1.narvii.com/6201/dfe7ad75cd32130a5c844d58315cbca02fe5b804_128.jpg",
+            status: ChatParticipantStatus.Online
+          }
+
+          return participantResponse;
+        })
+      })
+    )
   }
 
   getMessageHistory(destinataryId: any): Observable<Message[]> {

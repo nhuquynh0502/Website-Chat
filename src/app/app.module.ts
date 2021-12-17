@@ -8,9 +8,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchTopicComponent } from './search-topic/search-topic.component';
 import { TopicComponent } from './topic/topic.component';
 import { CurrentGroupComponent } from './current-group/current-group.component';
-import { ChatComponent } from './chat/chat.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgChatModule } from 'ng-chat';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfigService } from './home.service';
 
 @NgModule({
   declarations: [
@@ -18,17 +19,17 @@ import { NgChatModule } from 'ng-chat';
     LoginComponent,
     SearchTopicComponent,
     TopicComponent,
-    CurrentGroupComponent,
-    ChatComponent
+    CurrentGroupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    IvyCarouselModule, 
-    NgChatModule
+    IvyCarouselModule,
+    HttpClientModule, 
+    NgChatModule,
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
