@@ -12,6 +12,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgChatModule } from 'ng-chat';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './home.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ConfigService } from './home.service';
     IvyCarouselModule,
     HttpClientModule, 
     NgChatModule,
+    FormsModule,
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 <div class="background">
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                <img class="image" src="assets/images/login.png"/>
+            <div class="col mt-5">
+                <img class="image" src="assets/images/login.png" />
             </div>
             <div class="col">
                 <div class="login">
@@ -10,7 +10,24 @@
                     <div class="sign">Sign in to your Account</div>
                     <div class="click">
                         <div>
-                            <button class="btnGoogle mr-2">
+                            <div class=" mb-3">
+                                <label for="" class="label">Username</label>
+                                <input type="text" placeholder="username" class="username ml-2" [(ngModel)]="username">
+                            </div>
+                            <div class="mb-1">
+                                <label for="" class="label">Password</label>
+                                <input type="password" placeholder="password" class="password ml-2" [(ngModel)]="password">
+                            </div>
+                            <div class="error mt-7">
+                                {{error}}
+                            </div>
+                            <div class="btn-login mt-2">
+                                <button class="btn btn-primary loginBtn" (click)="clickLogin()">
+                                    Login
+                                </button>
+                            </div>
+
+                            <!-- <button class="btnGoogle mr-2">
                                 <fa-icon [icon]="faGoogle" class="mr-1"></fa-icon>
                                 Login with Google
                             </button> 
@@ -18,16 +35,17 @@
                             <button class="btnFacebook ml-2">
                                 <fa-icon [icon]="faFacebook" class="mr-1"></fa-icon>
                                 Login with Facebook  
-                            </button> 
+                            </button>  -->
+
                         </div>
-                        <div class="account">
-                            No Account Gmail?   
+                        <!-- <div class="account">
+                            No Account Gmail?
                             <a href="https://jii.li/rbyHj">register</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div></div>
                 </div>
             </div>
-        </div> 
-    </div> 
+        </div>
+    </div>
 </div>
