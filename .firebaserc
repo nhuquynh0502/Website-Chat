@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lofty-ivy-309206": {
+      "hosting": {
+        "Chat": [
+          "lofty-ivy-309206"
+        ]
+      }
+    }
+  }
+}
